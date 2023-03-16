@@ -1,0 +1,55 @@
+@import 'normalize.css';
+
+//Font
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/KFOkCnqEu92Fr1Mu51xHIzIFKw.woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/KFOmCnqEu92Fr1Mu7WxKOzY.woff2');
+    font-weight: 700;
+}
+
+:root {
+    --black-color: black;
+    --white-color: white;
+    --text-color: #030303;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
+button,
+input,
+[tabIndex] {
+    border: none;
+    outline: none;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
+}
