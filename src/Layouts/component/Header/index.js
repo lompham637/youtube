@@ -1,19 +1,94 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css'; // optional
 
 import styles from './Header.module.scss';
 import config from '~/Config';
 import image from '~/assets/Image';
 import Image from '../../../components/Image';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import { UploadIcon, SearchIcon, MenuIcon, MicroIcon, NotificationIcon } from '~/components/Icon/icon';
-import HistorySearch from '~/components/HistorySearch';
-import Button from '~/components/Button';
+import {
+    UploadIcon,
+    MenuIcon,
+    NotificationIcon,
+    AccountIcon,
+    StudioIcon,
+    ChangeAccountIcon,
+    LogoutIcon,
+    CoinIcon,
+    DataPersonIcon,
+    DisplayIcon,
+    LanguageIcon,
+    LimitResIcon,
+    LocationIcon,
+    KeyboardIcon,
+    SettingIcon,
+    SupportIcon,
+    RequestIcon,
+} from '~/components/Icon/icon';
+import Search from '~/components/Search';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
+
+const MENU_ITEMS = [
+    {
+        icon: <AccountIcon />,
+        title: 'Kênh của bạn',
+    },
+    {
+        icon: <StudioIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <ChangeAccountIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <LogoutIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <CoinIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <DataPersonIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <DisplayIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <LanguageIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <LimitResIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <LocationIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <KeyboardIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <SettingIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <SupportIcon />,
+        title: 'Youtube Studio',
+    },
+    {
+        icon: <RequestIcon />,
+        title: 'Youtube Studio',
+    },
+];
 
 function Header() {
     return (
@@ -27,40 +102,9 @@ function Header() {
                 </Link>
             </div>
 
-            <HeadlessTippy
-                interactive
-                visible
-                render={(attrs) => (
-                    <PopperWrapper>
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <HistorySearch />
-                            <HistorySearch />
-                            <HistorySearch />
-                            <HistorySearch />
-                        </div>
-                    </PopperWrapper>
-                )}
-            >
-                <div className={cx('search')}>
-                    <div className={cx('search-input')}>
-                        <input placeholder="Tìm kiếm" spellCheck={false} />
-                    </div>
-                    <Tippy content="Tìm kiếm">
-                        <button className={cx('btn-search')}>
-                            <SearchIcon className={cx('search-icon')} />
-                        </button>
-                    </Tippy>
-                    <Tippy content="Tìm kiếm bằng giọng nói " placement="bottom">
-                        <button className={cx('micro')}>
-                            <MicroIcon />
-                        </button>
-                    </Tippy>
-                </div>
-            </HeadlessTippy>
+            <Search />
 
             <div className={cx('action')}>
-                <Button rightIcon={<UploadIcon />}>Upload</Button>
-
                 <Tippy content="Tạo">
                     <button className={cx('upload-icon')}>
                         <UploadIcon />
@@ -71,11 +115,13 @@ function Header() {
                         <NotificationIcon />
                     </button>
                 </Tippy>
-                <Image
-                    src="https://yt3.ggpht.com/AvJlzqwWUBaTzp8JHXFM9jQfDI-SbY79hDdz8WDxrxWWpCVMtDApLgqRC1GLsyyHOSt1XG6u=s88-c-k-c0x00ffffff-no-rj-mo"
-                    alt="avatar"
-                    className={cx('avatar')}
-                />
+                <Menu items={MENU_ITEMS}>
+                    <Image
+                        src="https://yt3.ggpht.com/AvJlzqwWUBaTzp8JHXFM9jQfDI-SbY79hDdz8WDxrxWWpCVMtDApLgqRC1GLsyyHOSt1XG6u=s88-c-k-c0x00ffffff-no-rj-mo"
+                        alt="avatar"
+                        className={cx('avatar')}
+                    />
+                </Menu>
             </div>
         </div>
     );
